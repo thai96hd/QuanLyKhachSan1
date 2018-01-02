@@ -79,21 +79,29 @@ namespace QuanLyKhachSan
 
         private void btnTimKiemPhong_Click(object sender, EventArgs e)
         {
-          
-           PhongBUS pBUS = new PhongBUS();
-          // lvPhong.Clear();
-            List<Phong1> list= pBUS.DanhSachPhongTrongTheoNgay(dtpNgayThue.Value,dtpNgaytra.Value);
-            foreach(Phong1 p in list)
+            if (dtpNgayThue.Value.Date < DateTime.Now.Date)
             {
-                ListViewItem lvitem = new ListViewItem();
-                lvitem.SubItems[0].Text = p.Maphong;
-                lvitem.SubItems[0].Text = p.Tenphong;
-                lvitem.SubItems[0].Text = p.Giaphong.ToString();
-                lvitem.SubItems[0].Text = p.Songuoi.ToString();
-                lvitem.SubItems[0].Text = p.Tenloaiphong;
-                lvPhong.Items.Add(lvitem);
+                MessageBox.Show("Ngày thuê không hợp lệ so với hiện tại");
             }
-            
+            else if ((dtpNgaytra.Value.Date - dtpNgayThue.Value.Date).Days < 1)
+            {
+                MessageBox.Show("Ngày trả phải sau ngày thuê");
+            }
+            else
+            {
+                lvPhong.Items.Clear();
+                PhongBUS pBUS = new PhongBUS();
+                List<Phong1> list = pBUS.DanhSachPhongTrongTheoNgay(dtpNgayThue.Value.Date, dtpNgaytra.Value.Date);
+                foreach (Phong1 p in list)
+                {
+                    ListViewItem lvitem = new ListViewItem(p.Maphong);
+                    lvitem.SubItems.Add(p.Tenphong);
+                    lvitem.SubItems.Add(p.Giaphong.ToString());
+                    lvitem.SubItems.Add(p.Songuoi.ToString());
+                    lvitem.SubItems.Add(p.Tenloaiphong);
+                    lvPhong.Items.Add(lvitem);
+                }
+            }
         }
     }
 

@@ -44,6 +44,11 @@
             this.dtpNgaytra = new System.Windows.Forms.DateTimePicker();
             this.dtpNgayThue = new System.Windows.Forms.DateTimePicker();
             this.lvPhong = new System.Windows.Forms.ListView();
+            this.maphong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tenphong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.giaphong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.songuoi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tenloaiphong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtTimKiemKhach = new System.Windows.Forms.TextBox();
@@ -61,11 +66,6 @@
             this.diadiem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnThuePhong = new System.Windows.Forms.Button();
-            this.maphong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tenphong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.giaphong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.songuoi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tenloaiphong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -226,13 +226,40 @@
             this.giaphong,
             this.songuoi,
             this.tenloaiphong});
+            this.lvPhong.FullRowSelect = true;
             this.lvPhong.GridLines = true;
+            this.lvPhong.HideSelection = false;
             this.lvPhong.Location = new System.Drawing.Point(9, 63);
             this.lvPhong.Name = "lvPhong";
             this.lvPhong.Size = new System.Drawing.Size(653, 210);
             this.lvPhong.TabIndex = 2;
             this.lvPhong.UseCompatibleStateImageBehavior = false;
             this.lvPhong.View = System.Windows.Forms.View.Details;
+            // 
+            // maphong
+            // 
+            this.maphong.Text = "Mã Phòng";
+            this.maphong.Width = 88;
+            // 
+            // tenphong
+            // 
+            this.tenphong.Text = "Tên Phòng";
+            this.tenphong.Width = 103;
+            // 
+            // giaphong
+            // 
+            this.giaphong.Text = "Giá Phòng";
+            this.giaphong.Width = 100;
+            // 
+            // songuoi
+            // 
+            this.songuoi.Text = "Số người";
+            this.songuoi.Width = 120;
+            // 
+            // tenloaiphong
+            // 
+            this.tenloaiphong.Text = "Loại Phòng";
+            this.tenloaiphong.Width = 197;
             // 
             // label8
             // 
@@ -396,31 +423,6 @@
             this.btnThuePhong.TabIndex = 4;
             this.btnThuePhong.Text = "Thuê Phòng";
             this.btnThuePhong.UseVisualStyleBackColor = true;
-            // 
-            // maphong
-            // 
-            this.maphong.Text = "Mã Phòng";
-            this.maphong.Width = 88;
-            // 
-            // tenphong
-            // 
-            this.tenphong.Text = "Tên Phòng";
-            this.tenphong.Width = 103;
-            // 
-            // giaphong
-            // 
-            this.giaphong.Text = "Giá Phòng";
-            this.giaphong.Width = 100;
-            // 
-            // songuoi
-            // 
-            this.songuoi.Text = "Số người";
-            this.songuoi.Width = 120;
-            // 
-            // tenloaiphong
-            // 
-            this.tenloaiphong.Text = "Loại Phòng";
-            this.tenloaiphong.Width = 197;
             // 
             // frmThuePhong
             // 

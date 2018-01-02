@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,7 +32,12 @@ namespace DAL
         public List<Phong1> DanhSachPhongTrongTheoNgay(DateTime ngaythue,DateTime ngaytra)
         {
             DataTable dt = new DataTable();
-            dt = DataProvider.Instance.GetDataQuerry("select * from Phong  p join LoaiPhong lp on p.maloaiphong=lp.maloaiphong");
+            SqlParameter[] pa = new SqlParameter[]
+            {
+                new SqlParameter("@ngayden",ngaythue),
+                new SqlParameter("@ngaytra",ngaytra)
+            };
+            dt = DataProvider.Instance.GetData("sp_timkiemphongtheongay", pa);
             List<Phong1> list = new List<Phong1>();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
