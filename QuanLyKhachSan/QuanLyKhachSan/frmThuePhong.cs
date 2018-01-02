@@ -1,4 +1,5 @@
 ﻿using BUS;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -70,5 +71,30 @@ namespace QuanLyKhachSan
             }
 
         }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnTimKiemPhong_Click(object sender, EventArgs e)
+        {
+          
+           PhongBUS pBUS = new PhongBUS();
+          // lvPhong.Clear();
+            List<Phong1> list= pBUS.DanhSachPhongTrongTheoNgay(dtpNgayThue.Value,dtpNgaytra.Value);
+            foreach(Phong1 p in list)
+            {
+                ListViewItem lvitem = new ListViewItem();
+                lvitem.SubItems[0].Text = p.Maphong;
+                lvitem.SubItems[0].Text = p.Tenphong;
+                lvitem.SubItems[0].Text = p.Giaphong.ToString();
+                lvitem.SubItems[0].Text = p.Songuoi.ToString();
+                lvitem.SubItems[0].Text = p.Tenloaiphong;
+                lvPhong.Items.Add(lvitem);
+            }
+            
+        }
     }
+
 }

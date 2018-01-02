@@ -15,5 +15,9 @@ namespace BUS
             PhongDAL phongDAL = new PhongDAL();
             return phongDAL.getListPhong();
         }
+        public List<Phong1> DanhSachPhongTrongTheoNgay(DateTime ngaythue,DateTime ngaytra)
+        {
+            return new PhongDAL().DanhSachPhongTrongTheoNgay(ngaythue, ngaytra);
+        }
     }
 }

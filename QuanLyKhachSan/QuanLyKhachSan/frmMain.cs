@@ -73,5 +73,11 @@ namespace QuanLyKhachSan
             frmQuanLyNhanVien f = new frmQuanLyNhanVien();
             f.ShowDialog();
         }
+
+        private void btnThuePhong_Click(object sender, EventArgs e)
+        {
+            frmThuePhong f = new frmThuePhong();
+            f.ShowDialog();
+        }
     }
 }

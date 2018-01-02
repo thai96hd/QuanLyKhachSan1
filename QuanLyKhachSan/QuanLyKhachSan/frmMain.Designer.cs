@@ -50,7 +50,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.maphong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnThuePhong = new System.Windows.Forms.Button();
             this.lblLoiChao = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -233,14 +233,15 @@
             this.imageList1.Images.SetKeyName(0, "imagephong.png");
             this.imageList1.Images.SetKeyName(1, "imagephong1.jpg");
             // 
-            // button1
+            // btnThuePhong
             // 
-            this.button1.Location = new System.Drawing.Point(12, 149);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(291, 34);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnThuePhong.Location = new System.Drawing.Point(12, 149);
+            this.btnThuePhong.Name = "btnThuePhong";
+            this.btnThuePhong.Size = new System.Drawing.Size(120, 34);
+            this.btnThuePhong.TabIndex = 4;
+            this.btnThuePhong.Text = "Thuê Phòng";
+            this.btnThuePhong.UseVisualStyleBackColor = true;
+            this.btnThuePhong.Click += new System.EventHandler(this.btnThuePhong_Click);
             // 
             // lblLoiChao
             // 
@@ -258,7 +259,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(810, 523);
             this.Controls.Add(this.lblLoiChao);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnThuePhong);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ribbonControl1);
@@ -297,7 +298,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn maphong;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnThuePhong;
         private System.Windows.Forms.Label lblLoiChao;
     }
 }
