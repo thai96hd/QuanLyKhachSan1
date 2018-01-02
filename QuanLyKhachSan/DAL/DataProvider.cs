@@ -149,5 +149,31 @@ namespace DAL
             close();
             return ret;
         }
+        public int ExNonQuery(string query, object[] pramater = null)
+        {
+            int data = 0;
+            using (SqlConnection connection = new SqlConnection(chuoiketnoi))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+
+                if (pramater != null)
+                {
+                    string[] listPars = query.Split(' ');
+                    int i = 0;
+                    foreach (string item in listPars)
+                    {
+                        if (item.Contains('@'))
+                        {
+                            command.Parameters.AddWithValue(item, pramater[i]);
+                            i++;
+                        }
+                    }
+                }
+                data = command.ExecuteNonQuery();
+                connection.Close();
+            }
+            return data;
+        }
     }
 }

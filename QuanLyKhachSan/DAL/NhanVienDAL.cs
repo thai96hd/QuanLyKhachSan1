@@ -13,7 +13,7 @@ namespace DAL
     {
         public NhanVien LayThongTinNhanVien(string tk,string mk)
         {
-            int i = 2;
+         
             DataTable dt = new DataTable();
             string query = "select *from [NhanVien] where taikhoan='" + tk + "' and matkhau='" + mk + "'";
             dt = DataProvider.Instance.GetDataQuerry(query);

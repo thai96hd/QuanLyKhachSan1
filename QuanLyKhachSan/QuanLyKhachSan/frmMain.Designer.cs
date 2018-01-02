@@ -128,6 +128,7 @@
             this.btnQuanLyPhong.Id = 6;
             this.btnQuanLyPhong.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnQuanLyPhong.LargeGlyph")));
             this.btnQuanLyPhong.Name = "btnQuanLyPhong";
+            this.btnQuanLyPhong.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQuanLyPhong_ItemClick);
             // 
             // btnQuanLyTrangThietBi
             // 
@@ -136,6 +137,7 @@
             this.btnQuanLyTrangThietBi.Id = 7;
             this.btnQuanLyTrangThietBi.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnQuanLyTrangThietBi.LargeGlyph")));
             this.btnQuanLyTrangThietBi.Name = "btnQuanLyTrangThietBi";
+            this.btnQuanLyTrangThietBi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQuanLyTrangThietBi_ItemClick);
             // 
             // btnQuanLyDichVu
             // 

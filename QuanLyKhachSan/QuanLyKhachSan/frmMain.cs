@@ -74,9 +74,21 @@ namespace QuanLyKhachSan
             f.ShowDialog();
         }
 
+
         private void btnThuePhong_Click(object sender, EventArgs e)
         {
             frmThuePhong f = new frmThuePhong();
+            f.ShowDialog();
+        }
+        private void btnQuanLyTrangThietBi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmThietBi f = new frmThietBi();
+            f.ShowDialog();
+        }
+
+        private void btnQuanLyPhong_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmPhong f = new frmPhong();
             f.ShowDialog();
         }
     }
