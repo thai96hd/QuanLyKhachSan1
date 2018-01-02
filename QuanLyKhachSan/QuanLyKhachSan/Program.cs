@@ -20,7 +20,7 @@ namespace QuanLyKhachSan
 
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
-            Application.Run(new frmThuePhong());
+            Application.Run(new frmLogin());
         }
     }
 }

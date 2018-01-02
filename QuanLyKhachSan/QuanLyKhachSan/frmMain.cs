@@ -20,6 +20,18 @@ namespace QuanLyKhachSan
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            #region Phân quyền cho nhân viên hệ thống
+            lblLoiChao.Text += NhanVien.Instance.Tennhanvien;
+            if (NhanVien.Instance.Quyenhan == 2)
+            {
+                btnQuanLyDichVu.Enabled = false;
+                btnQuanLyKhachHang.Enabled = false;
+                btnQuanLyNhanVien.Enabled = false;
+                btnQuanLyTrangThietBi.Enabled = false;
+                btnQuanLyPhong.Enabled = false;
+                
+            }
+            #endregion
             PhongBUS phongBUS = new PhongBUS();
             dataGridView1.DataSource = phongBUS.getListPhong();
             lvPhong.LargeImageList = imageList1;
@@ -43,6 +55,23 @@ namespace QuanLyKhachSan
 
             }
            
+        }
+
+        private void btnDangXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnDoiMatKhau_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmDoiMatKhau frmDoiMatKhau = new frmDoiMatKhau();
+            frmDoiMatKhau.ShowDialog();
+        }
+
+        private void btnQuanLyNhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmQuanLyNhanVien f = new frmQuanLyNhanVien();
+            f.ShowDialog();
         }
     }
 }

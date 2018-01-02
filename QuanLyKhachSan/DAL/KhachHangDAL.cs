@@ -9,8 +9,59 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
- public    class KhachHangDAL
+    public class KhachHangDAL
     {
+        public List<KhachHang> DanhSachKhachHang()
+        {
+            List<KhachHang> list = new List<KhachHang>();
+            DataTable dt = new DataTable();
+            dt = DataProvider.Instance.GetDataQuerry("select *from KhachHang");
+            for(int i = 0; i < dt.Rows.Count; i++)
+            {
+                DataRow dr = dt.Rows[i];
+                KhachHang kh = new KhachHang();
+                kh.Makhachhang = dr["makhachhang"].ToString();
+                kh.Tenkhachhang = dr["tenkhachhang"].ToString();
+                kh.Sochungminh = dr["sochungminh"].ToString();
+                kh.Ngaysinh = (DateTime)dr["ngaysinh"];
+                kh.Sodienthoai = dr["sodienthoai"].ToString();
+                kh.Gioitinh = dr["gioitinh"].ToString();
+                kh.Diadiem = dr["diadiem"].ToString();
+                list.Add(kh);
+            }
+            return list;
+        }
+        public List<KhachHang> TimKiemKhachHang(int danhmuctimkiem,string chuoitimkiem)
+        {
+            List<KhachHang> list = new List<KhachHang>();
+            DataTable dt = new DataTable();
+            if (danhmuctimkiem == 0)
+                dt = DataProvider.Instance.GetDataQuerry("select * from KhachHang where tenkhachhang like N'%"+chuoitimkiem+"%'");
+            else if(danhmuctimkiem==1)
+                dt= DataProvider.Instance.GetDataQuerry("select * from KhachHang where makhachhang like N'%" + chuoitimkiem + "%'");
+            else if(danhmuctimkiem==2)
+                dt = DataProvider.Instance.GetDataQuerry("select * from KhachHang where sochungminh like '%" + chuoitimkiem + "%'");
+            else if (danhmuctimkiem == 3)
+            {
+                dt = DataProvider.Instance.GetDataQuerry("select * from KhachHang where sodienthoai like N'%" + chuoitimkiem + "%'");
+            }
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                DataRow dr = dt.Rows[i];
+                KhachHang kh = new KhachHang();
+                kh.Makhachhang = dr["makhachhang"].ToString();
+                kh.Tenkhachhang = dr["tenkhachhang"].ToString();
+                kh.Sochungminh = dr["sochungminh"].ToString();
+                kh.Ngaysinh = (DateTime)dr["ngaysinh"];
+                kh.Sodienthoai = dr["sodienthoai"].ToString();
+                kh.Gioitinh = dr["gioitinh"].ToString();
+                kh.Diadiem = dr["diadiem"].ToString();
+                list.Add(kh);
+            }
+    
+                return list;
+           
+        }
         public bool ThemKhachHang(KhachHang kh)
         {
             SqlParameter[] pa = new SqlParameter[]
@@ -52,10 +103,10 @@ namespace DAL
                 }
                 else if (k >= 999)
                     s = "KH" + (k + 1).ToString();
-    
+
             }
             return s;
         }
-       
+
     }
 }

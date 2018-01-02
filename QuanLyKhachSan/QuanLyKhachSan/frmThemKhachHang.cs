@@ -45,7 +45,14 @@ namespace QuanLyKhachSan
                 {
                     MessageBox.Show("Thêm không thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                this.Close();
             }
+            
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
