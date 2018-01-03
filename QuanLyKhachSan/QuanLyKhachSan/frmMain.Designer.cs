@@ -47,14 +47,11 @@
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lvPhong = new System.Windows.Forms.ListView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.maphong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btnThuePhong = new System.Windows.Forms.Button();
             this.lblLoiChao = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -212,22 +209,6 @@
             this.lvPhong.TabIndex = 0;
             this.lvPhong.UseCompatibleStateImageBehavior = false;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.maphong});
-            this.dataGridView1.Location = new System.Drawing.Point(344, 160);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(423, 281);
-            this.dataGridView1.TabIndex = 2;
-            // 
-            // maphong
-            // 
-            this.maphong.DataPropertyName = "maphong";
-            this.maphong.HeaderText = "Mã phòng";
-            this.maphong.Name = "maphong";
-            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -262,7 +243,6 @@
             this.ClientSize = new System.Drawing.Size(810, 523);
             this.Controls.Add(this.lblLoiChao);
             this.Controls.Add(this.btnThuePhong);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ribbonControl1);
             this.Name = "frmMain";
@@ -272,7 +252,6 @@
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,8 +276,6 @@
         private DevExpress.XtraBars.BarButtonItem btnQuanLyKhachHang;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ListView lvPhong;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maphong;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button btnThuePhong;
         private System.Windows.Forms.Label lblLoiChao;

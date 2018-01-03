@@ -40,17 +40,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnTimKiemPhong = new System.Windows.Forms.Button();
-            this.dtpNgaytra = new System.Windows.Forms.DateTimePicker();
-            this.dtpNgayThue = new System.Windows.Forms.DateTimePicker();
             this.lvPhong = new System.Windows.Forms.ListView();
             this.maphong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tenphong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.giaphong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.songuoi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tenloaiphong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.txtTimKiemKhach = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnThemKhachHang = new System.Windows.Forms.Button();
@@ -178,44 +173,13 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.btnTimKiemPhong);
-            this.groupBox2.Controls.Add(this.dtpNgaytra);
-            this.groupBox2.Controls.Add(this.dtpNgayThue);
             this.groupBox2.Controls.Add(this.lvPhong);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Location = new System.Drawing.Point(12, 252);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(671, 279);
+            this.groupBox2.Size = new System.Drawing.Size(650, 279);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thông tin thuê phòng";
-            // 
-            // btnTimKiemPhong
-            // 
-            this.btnTimKiemPhong.Location = new System.Drawing.Point(483, 34);
-            this.btnTimKiemPhong.Name = "btnTimKiemPhong";
-            this.btnTimKiemPhong.Size = new System.Drawing.Size(75, 23);
-            this.btnTimKiemPhong.TabIndex = 5;
-            this.btnTimKiemPhong.Text = "Tìm Kiếm";
-            this.btnTimKiemPhong.UseVisualStyleBackColor = true;
-            this.btnTimKiemPhong.Click += new System.EventHandler(this.btnTimKiemPhong_Click);
-            // 
-            // dtpNgaytra
-            // 
-            this.dtpNgaytra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNgaytra.Location = new System.Drawing.Point(349, 34);
-            this.dtpNgaytra.Name = "dtpNgaytra";
-            this.dtpNgaytra.Size = new System.Drawing.Size(106, 20);
-            this.dtpNgaytra.TabIndex = 4;
-            // 
-            // dtpNgayThue
-            // 
-            this.dtpNgayThue.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNgayThue.Location = new System.Drawing.Point(108, 34);
-            this.dtpNgayThue.Name = "dtpNgayThue";
-            this.dtpNgayThue.Size = new System.Drawing.Size(120, 20);
-            this.dtpNgayThue.TabIndex = 3;
             // 
             // lvPhong
             // 
@@ -229,9 +193,9 @@
             this.lvPhong.FullRowSelect = true;
             this.lvPhong.GridLines = true;
             this.lvPhong.HideSelection = false;
-            this.lvPhong.Location = new System.Drawing.Point(9, 63);
+            this.lvPhong.Location = new System.Drawing.Point(9, 19);
             this.lvPhong.Name = "lvPhong";
-            this.lvPhong.Size = new System.Drawing.Size(653, 210);
+            this.lvPhong.Size = new System.Drawing.Size(630, 254);
             this.lvPhong.TabIndex = 2;
             this.lvPhong.UseCompatibleStateImageBehavior = false;
             this.lvPhong.View = System.Windows.Forms.View.Details;
@@ -260,24 +224,6 @@
             // 
             this.tenloaiphong.Text = "Loại Phòng";
             this.tenloaiphong.Width = 197;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(269, 36);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(47, 13);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Ngày trả";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(29, 36);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Ngày thuê";
             // 
             // txtTimKiemKhach
             // 
@@ -423,6 +369,7 @@
             this.btnThuePhong.TabIndex = 4;
             this.btnThuePhong.Text = "Thuê Phòng";
             this.btnThuePhong.UseVisualStyleBackColor = true;
+            this.btnThuePhong.Click += new System.EventHandler(this.btnThuePhong_Click);
             // 
             // frmThuePhong
             // 
@@ -440,7 +387,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhach)).EndInit();
@@ -462,14 +408,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dgvKhach;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ListView lvPhong;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnThuePhong;
-        private System.Windows.Forms.DateTimePicker dtpNgaytra;
-        private System.Windows.Forms.DateTimePicker dtpNgayThue;
-        private System.Windows.Forms.Button btnTimKiemPhong;
         private System.Windows.Forms.ComboBox cmbTimKiemKhach;
         private System.Windows.Forms.DataGridViewTextBoxColumn makhachhang;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenkhachhang;

@@ -21,7 +21,7 @@ namespace QuanLyKhachSan
         private void frmMain_Load(object sender, EventArgs e)
         {
             #region Phân quyền cho nhân viên hệ thống
-            lblLoiChao.Text += NhanVien.Instance.Tennhanvien;
+            lblLoiChao.Text="Chào bạn: "+ NhanVien.Instance.Tennhanvien;
             if (NhanVien.Instance.Quyenhan == 2)
             {
                 btnQuanLyDichVu.Enabled = false;
@@ -33,20 +33,22 @@ namespace QuanLyKhachSan
             }
             #endregion
             PhongBUS phongBUS = new PhongBUS();
-            dataGridView1.DataSource = phongBUS.getListPhong();
+            lvPhong.Items.Clear();
             lvPhong.LargeImageList = imageList1;
             lvPhong.View = View.LargeIcon;
             foreach(Phong p in  phongBUS.getListPhong())
             {
                 ListViewItem lvItem = new ListViewItem(p.Tenphong);
                 lvItem.SubItems.Add(p.Maphong);
-                lvItem.SubItems.Add(p.Loaiphong);
-                if (p.Dathue == false)
+                lvItem.SubItems.Add(p.Maloaiphong);
+                lvItem.SubItems.Add(p.Giaphong.ToString());
+                //lvItem.SubItems.Add()
+                if (p.Trangthai == 0)
                 {
                     lvItem.ImageIndex = 0;
                     lvItem.BackColor = Color.Green;
                 }
-                else
+                else if(p.Trangthai==1)
                 {
                     lvItem.ImageIndex = 1;
                     lvItem.BackColor = Color.Red;
@@ -79,6 +81,9 @@ namespace QuanLyKhachSan
         {
             frmThuePhong f = new frmThuePhong();
             f.ShowDialog();
+            frmMain_Load(sender, e);
+
+
         }
         private void btnQuanLyTrangThietBi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {

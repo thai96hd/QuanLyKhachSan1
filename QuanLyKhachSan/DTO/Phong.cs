@@ -10,9 +10,11 @@ namespace DTO
     {
         private string maphong;
         private string tenphong;
-        private string loaiphong;
-        private bool dadat;
-        private bool dathue;
+        private string maloaiphong;
+        private string tenloaiphong;
+        private int songuoi;
+        private decimal giaphong;
+        private int trangthai;
 
         public string Maphong
         {
@@ -39,43 +41,68 @@ namespace DTO
                 tenphong = value;
             }
         }
-
-        public string Loaiphong
+        public int Trangthai
         {
             get
             {
-                return loaiphong;
+                return trangthai;
             }
 
             set
             {
-                loaiphong = value;
+                trangthai = value;
             }
         }
 
-        public bool Dadat
+        public string Maloaiphong
         {
             get
             {
-                return dadat;
+                return maloaiphong;
             }
 
             set
             {
-                dadat = value;
+                maloaiphong = value;
             }
         }
 
-        public bool Dathue
+        public string Tenloaiphong
         {
             get
             {
-                return dathue;
+                return tenloaiphong;
             }
 
             set
             {
-                dathue = value;
+                tenloaiphong = value;
+            }
+        }
+
+        public int Songuoi
+        {
+            get
+            {
+                return songuoi;
+            }
+
+            set
+            {
+                songuoi = value;
+            }
+        }
+
+        public decimal Giaphong
+        {
+            get
+            {
+                return giaphong;
+            }
+
+            set
+            {
+                giaphong = value;
             }
         }
     }

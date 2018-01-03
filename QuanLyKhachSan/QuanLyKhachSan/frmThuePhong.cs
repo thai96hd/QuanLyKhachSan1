@@ -14,6 +14,7 @@ namespace QuanLyKhachSan
 {
     public partial class frmThuePhong : Form
     {
+        private List<Phong> dsPhongThue = new List<Phong>();
         public frmThuePhong()
         {
             InitializeComponent();
@@ -28,10 +29,9 @@ namespace QuanLyKhachSan
 
         private void frmThuePhong_Load(object sender, EventArgs e)
         {
+            LoadData();
             cmbTimKiemKhach.SelectedIndex = 0;
-            dgvKhach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            KhachHangBUS khBUS = new KhachHangBUS();
-            dgvKhach.DataSource = khBUS.DanhSachKhachHang();
+            
 
         }
 
@@ -76,32 +76,75 @@ namespace QuanLyKhachSan
         {
             this.Close();
         }
-
-        private void btnTimKiemPhong_Click(object sender, EventArgs e)
+        private void LoadData()
         {
-            if (dtpNgayThue.Value.Date < DateTime.Now.Date)
+            /// Load danh sách khách hàng
+            dgvKhach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            KhachHangBUS khBUS = new KhachHangBUS();
+            dgvKhach.DataSource = khBUS.DanhSachKhachHang();
+
+            ///Load danh sách phòng trống
+            lvPhong.Items.Clear();
+            PhongBUS pBUS = new PhongBUS();
+            List<Phong> list = pBUS.DanhSachPhongTrong();
+            foreach (Phong p in list)
             {
-                MessageBox.Show("Ngày thuê không hợp lệ so với hiện tại");
+                ListViewItem lvitem = new ListViewItem(p.Maphong);
+                lvitem.SubItems.Add(p.Tenphong);
+                lvitem.SubItems.Add(p.Giaphong.ToString());
+                lvitem.SubItems.Add(p.Songuoi.ToString());
+                lvitem.SubItems.Add(p.Tenloaiphong);
+                lvPhong.Items.Add(lvitem);
             }
-            else if ((dtpNgaytra.Value.Date - dtpNgayThue.Value.Date).Days < 1)
+            lvPhong.ItemChecked += LvPhong_ItemChecked;
+        }
+
+        private void LvPhong_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+            if (lvPhong.CheckedItems.Count > 0)
             {
-                MessageBox.Show("Ngày trả phải sau ngày thuê");
+                ListViewItem lv = e.Item;
+                Phong p = new Phong();
+                p.Maphong = lv.SubItems[0].Text;
+                p.Tenphong = lv.SubItems[1].Text;
+                p.Giaphong = Decimal.Parse(lv.SubItems[2].Text);
+               
+                dsPhongThue.Add(p);
+            }
+           
+        }
+
+        private void btnThuePhong_Click(object sender, EventArgs e)
+        {
+            if (dsPhongThue.Count == 0)
+            {
+                MessageBox.Show("Bạn chưa chọn phòng nào !");
+            }
+            else if (txtTenKhachHang.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn khách hàng !");
+            }
+            else if (DialogResult.OK == MessageBox.Show("Bạn có chắc chắn thuê phòng không", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question))
+            {
+                ThuePhongBUS tp = new ThuePhongBUS();
+                string makhachhang = dgvKhach.CurrentRow.Cells["Makhachhang"].Value.ToString();
+                if (tp.ThuePhong(dsPhongThue, dgvKhach.CurrentRow.Cells["Makhachhang"].Value.ToString(), NhanVien.Instance.Manhanvien, DateTime.Now))
+                {
+                    MessageBox.Show("Thuê phòng thành công!");
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Thuê phòng không thành công !");
+                }
+               
             }
             else
             {
-                lvPhong.Items.Clear();
-                PhongBUS pBUS = new PhongBUS();
-                List<Phong1> list = pBUS.DanhSachPhongTrongTheoNgay(dtpNgayThue.Value.Date, dtpNgaytra.Value.Date);
-                foreach (Phong1 p in list)
-                {
-                    ListViewItem lvitem = new ListViewItem(p.Maphong);
-                    lvitem.SubItems.Add(p.Tenphong);
-                    lvitem.SubItems.Add(p.Giaphong.ToString() +"VND");
-                    lvitem.SubItems.Add(p.Songuoi.ToString());
-                    lvitem.SubItems.Add(p.Tenloaiphong);
-                    lvPhong.Items.Add(lvitem);
-                }
+                dsPhongThue.Clear();
+                LoadData();
             }
+            
         }
     }
 
