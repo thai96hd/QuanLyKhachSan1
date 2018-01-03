@@ -26,5 +26,27 @@ namespace BUS
         {
             return new NhanVienDAL().DanhSachNhanVien();
         }
+        public List<NhanVien1> TimKiemNhanVien(int tieuchi, string chuoitimkiem)
+        {
+            return new NhanVienDAL().TimKiemNhanVien(tieuchi, chuoitimkiem);
+        }
+        public bool ThemNhanVien(NhanVien1 nv)
+        {
+            return new NhanVienDAL().ThemNhanVien(nv);
+        }
+        public bool SuaNhanVien(NhanVien1 nv)
+        {
+            return new NhanVienDAL().SuaNhanVien(nv);
+        }
+        public bool KiemTraTaiKhoanTonTai(string tk)
+        {
+            //Check la bien kiem tra su ton tai cua tai khoan neu tai khoan da ton tai return true
+            bool check = false;
+            foreach(NhanVien1 nv in new NhanVienDAL().DanhSachNhanVien())
+            {
+                if (nv.Taikhoan.Equals(tk)) return true;
+            }
+            return check;
+        }
     }
 }

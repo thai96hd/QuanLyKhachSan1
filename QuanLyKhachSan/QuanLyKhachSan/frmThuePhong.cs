@@ -96,7 +96,7 @@ namespace QuanLyKhachSan
                 {
                     ListViewItem lvitem = new ListViewItem(p.Maphong);
                     lvitem.SubItems.Add(p.Tenphong);
-                    lvitem.SubItems.Add(p.Giaphong.ToString());
+                    lvitem.SubItems.Add(p.Giaphong.ToString() +"VND");
                     lvitem.SubItems.Add(p.Songuoi.ToString());
                     lvitem.SubItems.Add(p.Tenloaiphong);
                     lvPhong.Items.Add(lvitem);
