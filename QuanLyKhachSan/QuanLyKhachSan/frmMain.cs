@@ -141,8 +141,9 @@ namespace QuanLyKhachSan
         {
             frmPhong f = new frmPhong();
             f.ShowDialog();
-            frmMain_Load(sender, e);
-            
+            LoadDanhSachPhong();
+
+
         }
 
         private void btnThuePhong1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -167,12 +168,12 @@ namespace QuanLyKhachSan
         {
             if(txtMaDichVu.Text.Equals(""))
             {
-                MessageBox.Show("Vui long chon dich vu su dung!");
+                MessageBox.Show("Vui lòng chọn dịch vụ sử dụng!");
             }
         
             else if (masudungdichvu == ""||txtMaKhachHang.Text=="")
             {
-                MessageBox.Show("Vui long chon phong su dung!");
+                MessageBox.Show("Phòng hiện đang trống!");
             }
             else
             {
@@ -201,7 +202,11 @@ namespace QuanLyKhachSan
 
         private void btnXoaDichVu_Click(object sender, EventArgs e)
         {
-            if (dgvChiTietSuDungDichVu.SelectedRows.Count > 0)
+            if (masudungdichvu == "" || txtMaKhachHang.Text == "")
+            {
+                MessageBox.Show("Phòng hiện đang trống!");
+            }
+            else if (dgvChiTietSuDungDichVu.SelectedRows.Count > 0)
             {
                 SuDungDichVuBUS sdBUs = new SuDungDichVuBUS();
                 string madichvu = dgvChiTietSuDungDichVu.CurrentRow.Cells["madichvu1"].Value.ToString();
