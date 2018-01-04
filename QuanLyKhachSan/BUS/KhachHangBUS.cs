@@ -30,5 +30,10 @@ namespace BUS
             KhachHangDAL khDAL = new KhachHangDAL();
             return khDAL.LayThongTinKhachHangTheoMa(ma);
         }
+
+        public bool SuaKhachHang(string makhachhang, string tenkhachhang, int sodienthoai, DateTime ngaysinh, string gioitinh, int sochungminh, string diadiem)
+        {
+            return new KhachHangDAL().SuaKhachHang(makhachhang, tenkhachhang, sodienthoai, ngaysinh, gioitinh, sochungminh, diadiem);
+        }
     }
 }

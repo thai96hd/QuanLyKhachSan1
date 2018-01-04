@@ -29,5 +29,9 @@ namespace BUS
         {
             return new LoaiPhongDAL().TimKiemloaiphong(tenloaiphong);
         }
+        public LoaiPhong ThongTinLoaiPhong(string maloaiphong)
+        {
+            return new LoaiPhongDAL().ThôngTinLoaiPhong(maloaiphong);
+        }
     }
 }

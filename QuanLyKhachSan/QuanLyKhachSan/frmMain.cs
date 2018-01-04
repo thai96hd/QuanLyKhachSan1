@@ -141,6 +141,8 @@ namespace QuanLyKhachSan
         {
             frmPhong f = new frmPhong();
             f.ShowDialog();
+            frmMain_Load(sender, e);
+            
         }
 
         private void btnThuePhong1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -167,7 +169,8 @@ namespace QuanLyKhachSan
             {
                 MessageBox.Show("Vui long chon dich vu su dung!");
             }
-            else if (masudungdichvu == "")
+        
+            else if (masudungdichvu == ""||txtMaKhachHang.Text=="")
             {
                 MessageBox.Show("Vui long chon phong su dung!");
             }
@@ -202,8 +205,8 @@ namespace QuanLyKhachSan
             {
                 SuDungDichVuBUS sdBUs = new SuDungDichVuBUS();
                 string madichvu = dgvChiTietSuDungDichVu.CurrentRow.Cells["madichvu1"].Value.ToString();
-                string masudung= dgvChiTietSuDungDichVu.CurrentRow.Cells["masudungdichvu1"].Value.ToString();
-                if (sdBUs.XoaChiTietSuDungDichVu(masudungdichvu,madichvu))
+                string masudung = dgvChiTietSuDungDichVu.CurrentRow.Cells["masudungdichvu1"].Value.ToString();
+                if (sdBUs.XoaChiTietSuDungDichVu(masudungdichvu, madichvu))
                 {
                     MessageBox.Show("Xóa thành công");
                     LoadSuDungDVPhong(masudungdichvu);
@@ -217,7 +220,18 @@ namespace QuanLyKhachSan
             {
                 MessageBox.Show("Chọn dịch vụ cần xóa!");
             }
-           
+        }
+
+        private void btnQuanLyKhachHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmKhachHang f = new frmKhachHang();
+            f.ShowDialog();
+        }
+
+        private void btnQuanLyDichVu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmDichVu f = new frmDichVu();
+            f.ShowDialog();
         }
     }
 }

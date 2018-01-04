@@ -52,9 +52,17 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.lblLoiChao = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtTongTienDV = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.btnXoaDichVu = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvChiTietSuDungDichVu = new System.Windows.Forms.DataGridView();
+            this.masudungdichvu1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.madichvu1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tendichvu1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dongia1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soluong1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.thanhtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnThemDichVu = new System.Windows.Forms.Button();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.txtNgayThue = new System.Windows.Forms.TextBox();
@@ -77,14 +85,6 @@
             this.dongia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtTimKiemDichVu = new DevExpress.XtraEditors.TextEdit();
             this.label1 = new System.Windows.Forms.Label();
-            this.masudungdichvu1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.madichvu1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tendichvu1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dongia1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soluong1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thanhtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtTongTienDV = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -187,6 +187,7 @@
             this.btnQuanLyDichVu.Id = 8;
             this.btnQuanLyDichVu.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnQuanLyDichVu.LargeGlyph")));
             this.btnQuanLyDichVu.Name = "btnQuanLyDichVu";
+            this.btnQuanLyDichVu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQuanLyDichVu_ItemClick);
             // 
             // btnQuanLyKhachHang
             // 
@@ -195,6 +196,7 @@
             this.btnQuanLyKhachHang.Id = 9;
             this.btnQuanLyKhachHang.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnQuanLyKhachHang.LargeGlyph")));
             this.btnQuanLyKhachHang.Name = "btnQuanLyKhachHang";
+            this.btnQuanLyKhachHang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQuanLyKhachHang_ItemClick);
             // 
             // btnThuePhong1
             // 
@@ -301,6 +303,27 @@
             this.panel2.Size = new System.Drawing.Size(849, 400);
             this.panel2.TabIndex = 8;
             // 
+            // txtTongTienDV
+            // 
+            this.txtTongTienDV.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTongTienDV.Location = new System.Drawing.Point(704, 318);
+            this.txtTongTienDV.Name = "txtTongTienDV";
+            this.txtTongTienDV.ReadOnly = true;
+            this.txtTongTienDV.Size = new System.Drawing.Size(128, 21);
+            this.txtTongTienDV.TabIndex = 12;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(606, 318);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(68, 13);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "Tổng tiền DV";
+            // 
             // btnXoaDichVu
             // 
             this.btnXoaDichVu.Location = new System.Drawing.Point(102, 269);
@@ -343,6 +366,49 @@
             this.dgvChiTietSuDungDichVu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvChiTietSuDungDichVu.Size = new System.Drawing.Size(527, 58);
             this.dgvChiTietSuDungDichVu.TabIndex = 0;
+            // 
+            // masudungdichvu1
+            // 
+            this.masudungdichvu1.DataPropertyName = "Masudungdichvu";
+            this.masudungdichvu1.HeaderText = "Mã Sử Dụng";
+            this.masudungdichvu1.Name = "masudungdichvu1";
+            this.masudungdichvu1.ReadOnly = true;
+            this.masudungdichvu1.Visible = false;
+            // 
+            // madichvu1
+            // 
+            this.madichvu1.DataPropertyName = "Madichvu";
+            this.madichvu1.HeaderText = "MãDV";
+            this.madichvu1.Name = "madichvu1";
+            this.madichvu1.ReadOnly = true;
+            // 
+            // tendichvu1
+            // 
+            this.tendichvu1.DataPropertyName = "Tendichvu";
+            this.tendichvu1.HeaderText = "Tên DV";
+            this.tendichvu1.Name = "tendichvu1";
+            this.tendichvu1.ReadOnly = true;
+            // 
+            // dongia1
+            // 
+            this.dongia1.DataPropertyName = "Dongia";
+            this.dongia1.HeaderText = "Đơn Giá";
+            this.dongia1.Name = "dongia1";
+            this.dongia1.ReadOnly = true;
+            // 
+            // soluong1
+            // 
+            this.soluong1.DataPropertyName = "Soluong";
+            this.soluong1.HeaderText = "Số lượng";
+            this.soluong1.Name = "soluong1";
+            this.soluong1.ReadOnly = true;
+            // 
+            // thanhtien
+            // 
+            this.thanhtien.DataPropertyName = "Thanhtien";
+            this.thanhtien.HeaderText = "Thành tiền";
+            this.thanhtien.Name = "thanhtien";
+            this.thanhtien.ReadOnly = true;
             // 
             // btnThemDichVu
             // 
@@ -572,70 +638,6 @@
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tìm kiếm";
-            // 
-            // masudungdichvu1
-            // 
-            this.masudungdichvu1.DataPropertyName = "Masudungdichvu";
-            this.masudungdichvu1.HeaderText = "Mã Sử Dụng";
-            this.masudungdichvu1.Name = "masudungdichvu1";
-            this.masudungdichvu1.ReadOnly = true;
-            this.masudungdichvu1.Visible = false;
-            // 
-            // madichvu1
-            // 
-            this.madichvu1.DataPropertyName = "Madichvu";
-            this.madichvu1.HeaderText = "MãDV";
-            this.madichvu1.Name = "madichvu1";
-            this.madichvu1.ReadOnly = true;
-            // 
-            // tendichvu1
-            // 
-            this.tendichvu1.DataPropertyName = "Tendichvu";
-            this.tendichvu1.HeaderText = "Tên DV";
-            this.tendichvu1.Name = "tendichvu1";
-            this.tendichvu1.ReadOnly = true;
-            // 
-            // dongia1
-            // 
-            this.dongia1.DataPropertyName = "Dongia";
-            this.dongia1.HeaderText = "Đơn Giá";
-            this.dongia1.Name = "dongia1";
-            this.dongia1.ReadOnly = true;
-            // 
-            // soluong1
-            // 
-            this.soluong1.DataPropertyName = "Soluong";
-            this.soluong1.HeaderText = "Số lượng";
-            this.soluong1.Name = "soluong1";
-            this.soluong1.ReadOnly = true;
-            // 
-            // thanhtien
-            // 
-            this.thanhtien.DataPropertyName = "Thanhtien";
-            this.thanhtien.HeaderText = "Thành tiền";
-            this.thanhtien.Name = "thanhtien";
-            this.thanhtien.ReadOnly = true;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(606, 318);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(68, 13);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "Tổng tiền DV";
-            // 
-            // txtTongTienDV
-            // 
-            this.txtTongTienDV.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTongTienDV.Location = new System.Drawing.Point(704, 318);
-            this.txtTongTienDV.Name = "txtTongTienDV";
-            this.txtTongTienDV.ReadOnly = true;
-            this.txtTongTienDV.Size = new System.Drawing.Size(128, 21);
-            this.txtTongTienDV.TabIndex = 12;
             // 
             // frmMain
             // 

@@ -23,5 +23,25 @@ namespace BUS
         {
             return new PhongDAL().DanhSachPhongTrong();
         }
+        public bool ThemPhong(string maphong, string tenphong, string maloaiphong, int trangthai)
+        {
+            return new PhongDAL().ThemPhong(maphong, tenphong, maloaiphong, trangthai);
+        }
+        public bool SuaPhong(string maphong, string tenphong, string maloaiphong, int trangthai)
+        {
+            return new PhongDAL().SuaPhong(maphong, tenphong, maloaiphong, trangthai);
+        }
+        public bool XoaPhong(string maphong)
+        {
+            return new PhongDAL().XoaPhong(maphong);
+        }
+        public bool KiemTraMaPhong(string maphong)
+        {
+            return new PhongDAL().KiemTraMaPhong(maphong);
+        }
+        public List<Phong> TimKiemPhong(string tenphong)
+        {
+            return new PhongDAL().TimKiemPhong(tenphong);
+        }
     }
 }
