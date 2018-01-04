@@ -127,5 +127,12 @@ namespace DAL
             return s;
         }
 
+        public bool SuaKhachHang(string makhachhang, string tenkhachhang, int sodienthoai, DateTime ngaysinh, string gioitinh, int sochungminh, string diadiem)
+        {
+            string query = string.Format("Update dbo.KhachHang set tenkhachhang= N'{0}', sodienthoai= N'{1}',ngaysinh= N'{2}',gioitinh= N'{3}',sochungminh= N'{4}',diadiem= N'{5}' where makhachhang= N'{6}' ", tenkhachhang, sodienthoai, ngaysinh, gioitinh, sochungminh, diadiem, makhachhang);
+            int result = DataProvider.Instance.ExNonQuery(query);
+            return result > 0;
+        }
+
     }
 }

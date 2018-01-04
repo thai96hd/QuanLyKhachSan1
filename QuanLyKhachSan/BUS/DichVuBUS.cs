@@ -18,5 +18,20 @@ namespace BUS
         {
             return new DichVuDAL().TimKiemDichVu(chuoitimkiem);
         }
+
+        public bool ThemDichVu(string madichvu, string tendichvu, decimal dongia)
+        {
+            return new DichVuDAL().ThemDichVu(madichvu, tendichvu, dongia);
+        }
+
+        public bool SuaDichVu(string madichvu, string tendichvu, decimal dongia)
+        {
+            return new DichVuDAL().SuaDichVu(madichvu, tendichvu, dongia);
+        }
+
+        public bool XoaDichVu(string madichvu)
+        {
+            return new DichVuDAL().XoaDichVu(madichvu);
+        }
     }
 }

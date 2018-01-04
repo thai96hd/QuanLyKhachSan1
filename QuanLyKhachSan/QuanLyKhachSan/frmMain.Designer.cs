@@ -77,11 +77,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dgvDichVu = new System.Windows.Forms.DataGridView();
-            this.txtTimKiemDichVu = new DevExpress.XtraEditors.TextEdit();
-            this.label1 = new System.Windows.Forms.Label();
             this.madichvu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tendichvu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dongia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtTimKiemDichVu = new DevExpress.XtraEditors.TextEdit();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -184,6 +184,7 @@
             this.btnQuanLyDichVu.Id = 8;
             this.btnQuanLyDichVu.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnQuanLyDichVu.LargeGlyph")));
             this.btnQuanLyDichVu.Name = "btnQuanLyDichVu";
+            this.btnQuanLyDichVu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQuanLyDichVu_ItemClick);
             // 
             // btnQuanLyKhachHang
             // 
@@ -192,6 +193,7 @@
             this.btnQuanLyKhachHang.Id = 9;
             this.btnQuanLyKhachHang.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnQuanLyKhachHang.LargeGlyph")));
             this.btnQuanLyKhachHang.Name = "btnQuanLyKhachHang";
+            this.btnQuanLyKhachHang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnQuanLyKhachHang_ItemClick);
             // 
             // btnThuePhong1
             // 
@@ -549,6 +551,27 @@
             this.dgvDichVu.Size = new System.Drawing.Size(539, 205);
             this.dgvDichVu.TabIndex = 2;
             // 
+            // madichvu
+            // 
+            this.madichvu.DataPropertyName = "Madichvu";
+            this.madichvu.HeaderText = "Mã DV";
+            this.madichvu.Name = "madichvu";
+            this.madichvu.ReadOnly = true;
+            // 
+            // tendichvu
+            // 
+            this.tendichvu.DataPropertyName = "Tendichvu";
+            this.tendichvu.HeaderText = "Tên dịch vụ";
+            this.tendichvu.Name = "tendichvu";
+            this.tendichvu.ReadOnly = true;
+            // 
+            // dongia
+            // 
+            this.dongia.DataPropertyName = "Dongia";
+            this.dongia.HeaderText = "Đơn giá";
+            this.dongia.Name = "dongia";
+            this.dongia.ReadOnly = true;
+            // 
             // txtTimKiemDichVu
             // 
             this.txtTimKiemDichVu.Location = new System.Drawing.Point(99, 135);
@@ -566,24 +589,6 @@
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tìm kiếm";
-            // 
-            // madichvu
-            // 
-            this.madichvu.DataPropertyName = "Madichvu";
-            this.madichvu.HeaderText = "Mã DV";
-            this.madichvu.Name = "madichvu";
-            // 
-            // tendichvu
-            // 
-            this.tendichvu.DataPropertyName = "Tendichvu";
-            this.tendichvu.HeaderText = "Tên dịch vụ";
-            this.tendichvu.Name = "tendichvu";
-            // 
-            // dongia
-            // 
-            this.dongia.DataPropertyName = "Dongia";
-            this.dongia.HeaderText = "Đơn giá";
-            this.dongia.Name = "dongia";
             // 
             // frmMain
             // 
