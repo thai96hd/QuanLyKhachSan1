@@ -238,5 +238,42 @@ namespace QuanLyKhachSan
             frmDichVu f = new frmDichVu();
             f.ShowDialog();
         }
+
+        private void btnTraPhong_Click(object sender, EventArgs e)
+        {
+            if (txtMaKhachHang.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn phòng để trả");
+                return;
+            }
+            else
+            {
+                if (lvPhong.SelectedItems.Count > 0)
+                {
+                    PhongBUS phongBUS = new PhongBUS();
+                    ListViewItem lv = lvPhong.SelectedItems[0];
+                    Phong p = new Phong();
+                    Phong p2 = new Phong();
+                    p.Maphong = lv.SubItems[1].Text;
+                    ThuePhongBUS thuephongbus = new ThuePhongBUS();
+                    KhachHangBUS khBUS = new KhachHangBUS();
+                    ThuePhong tp = new ThuePhong();
+                    tp = thuephongbus.LayThongTinThuePhong(p.Maphong);
+                    p2 = phongBUS.PhongTheoMa(p.Maphong);
+                    string mathuephong =tp.Mathuephong;
+                    string maphong = p.Maphong;
+                    string tenphong =p2.Tenphong;
+                    decimal giaphong =p2.Giaphong;
+                    string tenkhach = txtTenKhachHang.Text;
+                    DateTime ngaythue =DateTime.Parse(txtNgayThue.Text);
+                    int tiendichvu = int.Parse(txtTongTienDV.Text);
+                    string manhanvien = NhanVien.Instance.Manhanvien;
+                    frmTraPhong frm = new frmTraPhong(mathuephong, tenphong,giaphong, tenkhach, ngaythue, tiendichvu, manhanvien, maphong);
+                    frm.ShowDialog();
+                    LoadDanhSachPhong();
+
+                }
+            }
+        }
     }
 }

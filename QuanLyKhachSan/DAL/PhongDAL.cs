@@ -105,6 +105,13 @@ namespace DAL
             else
                 return false;
         }
+        public bool CapNhatTrangThaiPhong(string maphong, int trangthai)
+        {
+            string query = string.Format("update dbo.Phong set trangthai = '{0}' where maphong ='{1}'", trangthai, maphong);
+            int result = DataProvider.Instance.ExNonQuery(query);
+            return result > 0;
+
+        }
         public List<Phong> TimKiemPhong(string tenphong)
         {
             DataTable dt = new DataTable();
@@ -126,6 +133,27 @@ namespace DAL
                 list.Add(p);
             }
             return list;
+        }
+        public Phong PhongTheoMa(string maphong)
+        {
+            Phong p = new Phong();
+            DataTable dt = new DataTable();
+            string query = string.Format("select * from Phong  p join LoaiPhong lp on p.maloaiphong=lp.maloaiphong where maphong='{0}'",maphong);
+            dt = DataProvider.Instance.GetDataQuerry(query);
+            
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                DataRow dr = dt.Rows[i];
+               
+                p.Maphong = dr["maphong"].ToString();
+                p.Tenphong = dr["tenphong"].ToString();
+                p.Tenloaiphong = dr["tenloaiphong"].ToString();
+                p.Trangthai = (int)dr["trangthai"];
+                p.Songuoi = (int)dr["songuoi"];
+                p.Maloaiphong = dr["maloaiphong"].ToString();
+                p.Giaphong = (Decimal)dr["giaphong"];
+            }
+            return p;
         }
     }
 }

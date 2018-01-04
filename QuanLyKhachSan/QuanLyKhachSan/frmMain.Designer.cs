@@ -52,6 +52,7 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.lblLoiChao = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnTraPhong = new System.Windows.Forms.Button();
             this.txtTongTienDV = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.btnXoaDichVu = new System.Windows.Forms.Button();
@@ -292,6 +293,7 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.btnTraPhong);
             this.panel2.Controls.Add(this.txtTongTienDV);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.btnXoaDichVu);
@@ -302,6 +304,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(849, 400);
             this.panel2.TabIndex = 8;
+            // 
+            // btnTraPhong
+            // 
+            this.btnTraPhong.Location = new System.Drawing.Point(704, 349);
+            this.btnTraPhong.Name = "btnTraPhong";
+            this.btnTraPhong.Size = new System.Drawing.Size(80, 27);
+            this.btnTraPhong.TabIndex = 13;
+            this.btnTraPhong.Text = "Trả phòng";
+            this.btnTraPhong.UseVisualStyleBackColor = true;
+            this.btnTraPhong.Click += new System.EventHandler(this.btnTraPhong_Click);
             // 
             // txtTongTienDV
             // 
@@ -728,6 +740,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn thanhtien;
         private System.Windows.Forms.TextBox txtTongTienDV;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnTraPhong;
     }
 }
 

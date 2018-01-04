@@ -50,6 +50,7 @@
     <Compile Include="SuDungDichVuBUS.cs" />
     <Compile Include="ThietBiBUS.cs" />
     <Compile Include="ThuePhongBUS.cs" />
+    <Compile Include="TraPhongBUS.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
