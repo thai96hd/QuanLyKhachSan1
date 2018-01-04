@@ -145,5 +145,17 @@ namespace QuanLyKhachSan
             txtMaDichVu.DataBindings.Add("Text", dgvDichVu.DataSource, "Madichvu");
             txtTenDV.DataBindings.Add("Text", dgvDichVu.DataSource, "Tendichvu");
         }
+
+        private void btnQuanLyKhachHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmKhachHang f = new frmKhachHang();
+            f.ShowDialog();
+        }
+
+        private void btnQuanLyDichVu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmDichVu f = new frmDichVu();
+            f.ShowDialog();
+        }
     }
 }
