@@ -33,5 +33,9 @@ namespace BUS
         {
             return new LoaiPhongDAL().ThôngTinLoaiPhong(maloaiphong);
         }
+        public string SinhMaLoaiPhong()
+        {
+            return new LoaiPhongDAL().SinhMaLoaiPhong();
+        }
     }
 }

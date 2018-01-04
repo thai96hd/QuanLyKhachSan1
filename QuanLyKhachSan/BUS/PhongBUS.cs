@@ -51,5 +51,9 @@ namespace BUS
         {
             return new PhongDAL().CapNhatTrangThaiPhong(maphong, trangthai);
         }
+        public string SinhMaPhong()
+        {
+            return new PhongDAL().SinhMaPhong();
+        }
     }
 }

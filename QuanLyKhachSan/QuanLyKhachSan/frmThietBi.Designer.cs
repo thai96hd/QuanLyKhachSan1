@@ -30,6 +30,10 @@
         {
             this.btnThemTB = new System.Windows.Forms.Button();
             this.dgvThietBi = new System.Windows.Forms.DataGridView();
+            this.Mathietbi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tenthietbi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Giathietbi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Soluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSuaTB = new System.Windows.Forms.Button();
             this.txtMaTb = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -42,10 +46,6 @@
             this.btnXoaTB = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTimKiemTB = new System.Windows.Forms.TextBox();
-            this.Mathietbi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tenthietbi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Giathietbi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Soluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvThietBi)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,6 +80,34 @@
             this.dgvThietBi.Size = new System.Drawing.Size(771, 142);
             this.dgvThietBi.TabIndex = 22;
             // 
+            // Mathietbi
+            // 
+            this.Mathietbi.DataPropertyName = "Mathietbi";
+            this.Mathietbi.HeaderText = "Mã Thiết Bị";
+            this.Mathietbi.Name = "Mathietbi";
+            this.Mathietbi.ReadOnly = true;
+            // 
+            // Tenthietbi
+            // 
+            this.Tenthietbi.DataPropertyName = "Tenthietbi";
+            this.Tenthietbi.HeaderText = "Tên Thiết Bị";
+            this.Tenthietbi.Name = "Tenthietbi";
+            this.Tenthietbi.ReadOnly = true;
+            // 
+            // Giathietbi
+            // 
+            this.Giathietbi.DataPropertyName = "Giathietbi";
+            this.Giathietbi.HeaderText = "Giá";
+            this.Giathietbi.Name = "Giathietbi";
+            this.Giathietbi.ReadOnly = true;
+            // 
+            // Soluong
+            // 
+            this.Soluong.DataPropertyName = "Soluong";
+            this.Soluong.HeaderText = "Số Lượng";
+            this.Soluong.Name = "Soluong";
+            this.Soluong.ReadOnly = true;
+            // 
             // btnSuaTB
             // 
             this.btnSuaTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -97,6 +125,7 @@
             // 
             this.txtMaTb.Location = new System.Drawing.Point(180, 25);
             this.txtMaTb.Name = "txtMaTb";
+            this.txtMaTb.ReadOnly = true;
             this.txtMaTb.Size = new System.Drawing.Size(193, 26);
             this.txtMaTb.TabIndex = 25;
             // 
@@ -186,34 +215,6 @@
             this.txtTimKiemTB.Size = new System.Drawing.Size(179, 26);
             this.txtTimKiemTB.TabIndex = 34;
             this.txtTimKiemTB.TextChanged += new System.EventHandler(this.txtTimKiemTB_TextChanged);
-            // 
-            // Mathietbi
-            // 
-            this.Mathietbi.DataPropertyName = "Mathietbi";
-            this.Mathietbi.HeaderText = "Mã Thiết Bị";
-            this.Mathietbi.Name = "Mathietbi";
-            this.Mathietbi.ReadOnly = true;
-            // 
-            // Tenthietbi
-            // 
-            this.Tenthietbi.DataPropertyName = "Tenthietbi";
-            this.Tenthietbi.HeaderText = "Tên Thiết Bị";
-            this.Tenthietbi.Name = "Tenthietbi";
-            this.Tenthietbi.ReadOnly = true;
-            // 
-            // Giathietbi
-            // 
-            this.Giathietbi.DataPropertyName = "Giathietbi";
-            this.Giathietbi.HeaderText = "Giá";
-            this.Giathietbi.Name = "Giathietbi";
-            this.Giathietbi.ReadOnly = true;
-            // 
-            // Soluong
-            // 
-            this.Soluong.DataPropertyName = "Soluong";
-            this.Soluong.HeaderText = "Số Lượng";
-            this.Soluong.Name = "Soluong";
-            this.Soluong.ReadOnly = true;
             // 
             // frmThietBi
             // 

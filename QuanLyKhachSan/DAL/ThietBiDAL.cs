@@ -82,6 +82,30 @@ namespace DAL
             }
             return dstb;
         }
+        public string SinhMaThietBiPhong()
+        {
+            string s = "";
+            DataTable dt = new DataTable();
+            dt = DataProvider.Instance.GetDataQuerry("select *from ThietBi");
+            if (dt.Rows.Count < 0)
+            {
+                s = "TB001";
+            }
+            else
+            {
+                int k = dt.Rows.Count;
+                if (k < 9)
+                {
+                    s = "TB00" + (k + 1).ToString();
+                }
+                else if (k >= 9)
+                {
+                    s = "TB0" + (k + 1).ToString();
+                }
+
+            }
+            return s;
+        }
 
     }
 }

@@ -39,7 +39,7 @@ namespace QuanLyKhachSan
         }
         private void btnThemTB_Click(object sender, EventArgs e)
         {
-            string mathietbi = txtMaTb.Text;
+            string mathietbi = tbBus.SinhMaThietBiPhong();
             string tenthietbi = txtTenTB.Text;
             decimal giathietbi = Decimal.Parse(txtGiaTB.Text);
             int soluong = Int32.Parse(txtSoLuongTb.Text);

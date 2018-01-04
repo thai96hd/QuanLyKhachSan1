@@ -84,7 +84,7 @@ namespace QuanLyKhachSan
         }
         private void btnThemPhong_Click(object sender, EventArgs e)
         {
-            string maphong = txtMaPhong.Text;
+            string maphong = phongbus.SinhMaPhong();
             string tenphong = txtTenPhong.Text;
             string maloaiphong = cbLoaiPhong.Text;
             int trangthai = 0;
@@ -301,7 +301,7 @@ namespace QuanLyKhachSan
 
         private void btnThemLP_Click(object sender, EventArgs e)
         {
-            string maloaiphong = txtMaLP.Text;
+            string maloaiphong = lpBus.SinhMaLoaiPhong();
             string tenloaiphong = txtTenLP.Text;
             decimal giaphong = Decimal.Parse(txtGiaLP.Text);
             int songuoi = Int32.Parse(txtSoNguoiLP.Text);

@@ -45,6 +45,8 @@
             this.tentb = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.soluong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtTenLoai = new System.Windows.Forms.TextBox();
             this.rdbTrong = new System.Windows.Forms.RadioButton();
             this.rdbDaThue = new System.Windows.Forms.RadioButton();
             this.txtGiaPhong = new System.Windows.Forms.TextBox();
@@ -89,8 +91,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.btnSuaLP = new System.Windows.Forms.Button();
             this.btnThemLP = new System.Windows.Forms.Button();
-            this.txtTenLoai = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -296,9 +296,27 @@
             this.panel1.Size = new System.Drawing.Size(497, 458);
             this.panel1.TabIndex = 0;
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(271, 107);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(81, 19);
+            this.label15.TabIndex = 65;
+            this.label15.Text = "Tên loại";
+            // 
+            // txtTenLoai
+            // 
+            this.txtTenLoai.Location = new System.Drawing.Point(367, 104);
+            this.txtTenLoai.Name = "txtTenLoai";
+            this.txtTenLoai.ReadOnly = true;
+            this.txtTenLoai.Size = new System.Drawing.Size(114, 26);
+            this.txtTenLoai.TabIndex = 64;
+            // 
             // rdbTrong
             // 
             this.rdbTrong.AutoSize = true;
+            this.rdbTrong.Enabled = false;
             this.rdbTrong.Location = new System.Drawing.Point(367, 61);
             this.rdbTrong.Name = "rdbTrong";
             this.rdbTrong.Size = new System.Drawing.Size(72, 23);
@@ -309,6 +327,7 @@
             // rdbDaThue
             // 
             this.rdbDaThue.AutoSize = true;
+            this.rdbDaThue.Enabled = false;
             this.rdbDaThue.Location = new System.Drawing.Point(367, 20);
             this.rdbDaThue.Name = "rdbDaThue";
             this.rdbDaThue.Size = new System.Drawing.Size(90, 23);
@@ -388,6 +407,7 @@
             // 
             this.txtMaPhong.Location = new System.Drawing.Point(114, 16);
             this.txtMaPhong.Name = "txtMaPhong";
+            this.txtMaPhong.ReadOnly = true;
             this.txtMaPhong.Size = new System.Drawing.Size(139, 26);
             this.txtMaPhong.TabIndex = 53;
             // 
@@ -669,6 +689,7 @@
             // 
             this.txtMaLP.Location = new System.Drawing.Point(167, 25);
             this.txtMaLP.Name = "txtMaLP";
+            this.txtMaLP.ReadOnly = true;
             this.txtMaLP.Size = new System.Drawing.Size(193, 26);
             this.txtMaLP.TabIndex = 38;
             // 
@@ -707,23 +728,6 @@
             this.btnThemLP.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnThemLP.UseVisualStyleBackColor = true;
             this.btnThemLP.Click += new System.EventHandler(this.btnThemLP_Click);
-            // 
-            // txtTenLoai
-            // 
-            this.txtTenLoai.Location = new System.Drawing.Point(367, 104);
-            this.txtTenLoai.Name = "txtTenLoai";
-            this.txtTenLoai.ReadOnly = true;
-            this.txtTenLoai.Size = new System.Drawing.Size(114, 26);
-            this.txtTenLoai.TabIndex = 64;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(271, 107);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(81, 19);
-            this.label15.TabIndex = 65;
-            this.label15.Text = "Tên loại";
             // 
             // frmPhong
             // 

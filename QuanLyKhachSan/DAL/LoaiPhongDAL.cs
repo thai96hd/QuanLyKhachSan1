@@ -83,6 +83,31 @@ namespace DAL
             }
             return dstb;
         }
+        public string SinhMaLoaiPhong()
+        {
+            string s = "";
+            DataTable dt = new DataTable();
+            dt = DataProvider.Instance.GetDataQuerry("select *from LoaiPhong");
+            if (dt.Rows.Count < 0)
+            {
+                s = "LP01";
+            }
+            else
+            {
+                int k = dt.Rows.Count;
+                if (k < 9)
+                {
+                    s = "LP0" + (k + 1).ToString();
+                }
+                else if (k >= 9)
+                {
+                    s = "LP" + (k + 1).ToString();
+                }
+
+            }
+            return s;
+        }
     }
+
 }
 

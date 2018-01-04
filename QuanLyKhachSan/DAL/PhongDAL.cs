@@ -155,5 +155,29 @@ namespace DAL
             }
             return p;
         }
+        public string SinhMaPhong()
+        {
+            string s = "";
+            DataTable dt = new DataTable();
+            dt = DataProvider.Instance.GetDataQuerry("select *from Phong");
+            if (dt.Rows.Count < 0)
+            {
+                s = "PH0001";
+            }
+            else
+            {
+                int k = dt.Rows.Count;
+                if (k < 9)
+                {
+                    s = "LP000" + (k + 1).ToString();
+                }
+                else if (k >= 9)
+                {
+                    s = "LP00" + (k + 1).ToString();
+                }
+
+            }
+            return s;
+        }
     }
 }
