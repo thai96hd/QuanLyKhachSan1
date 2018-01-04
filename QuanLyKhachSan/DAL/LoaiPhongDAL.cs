@@ -67,6 +67,22 @@ namespace DAL
             }
             return dstb;
         }
+        public LoaiPhong ThôngTinLoaiPhong(string maloaiphong)
+        {
+            LoaiPhong dstb = new LoaiPhong();
+            string query = string.Format("select * from dbo.LoaiPhong where maloaiphong = N'{0}'", maloaiphong);
+            DataTable dt = new DataTable();
+            dt = DataProvider.Instance.GetDataQuerry(query);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                DataRow dr = dt.Rows[i];
+                dstb.Maloaiphong = dr["maloaiphong"].ToString();
+                dstb.Tenloaiphong = dr["tenloaiphong"].ToString();
+                dstb.Songuoi = Int32.Parse(dr["songuoi"].ToString());
+                dstb.Giaphong = Decimal.Parse(dr["giaphong"].ToString());
+            }
+            return dstb;
+        }
     }
 }
 

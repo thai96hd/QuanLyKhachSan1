@@ -95,6 +95,8 @@ namespace QuanLyKhachSan
         {
             frmPhong f = new frmPhong();
             f.ShowDialog();
+            frmMain_Load(sender, e);
+            
         }
     }
 }

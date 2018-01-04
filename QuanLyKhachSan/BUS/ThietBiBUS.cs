@@ -30,5 +30,9 @@ namespace BUS
         {
             return new ThietBiDAL().TimKiemThietBi(tenthietbi);
         }
+        public ThietBi ThietBiTheoMa(string mathietbi)
+        {
+            return new ThietBiDAL().ThietBiTheoMa(mathietbi);
+        }
     }
 }

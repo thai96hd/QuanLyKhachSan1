@@ -64,5 +64,24 @@ namespace DAL
             }
             return dstb;
         }
+        public ThietBi ThietBiTheoMa(string mathietbi)
+        {
+            ThietBi dstb = new ThietBi();
+            DataTable dt = new DataTable();
+           string query =string.Format("select * from ThietBi where mathietbi = N'{0}'", mathietbi);
+            dt = DataProvider.Instance.GetDataQuerry(query);
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                DataRow dr = dt.Rows[i];
+               
+                dstb.Mathietbi = dr["mathietbi"].ToString();
+                dstb.Tenthietbi = dr["tenthietbi"].ToString();
+                dstb.Soluong = Int32.Parse(dr["soluong"].ToString());
+                dstb.Giathietbi = Decimal.Parse(dr["giathietbi"].ToString());
+               
+            }
+            return dstb;
+        }
+
     }
 }
