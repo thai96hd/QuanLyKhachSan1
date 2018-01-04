@@ -50,6 +50,7 @@ namespace QuanLyKhachSan
                 lvItem.SubItems.Add(p.Maphong);
                 lvItem.SubItems.Add(p.Maloaiphong);
                 lvItem.SubItems.Add(p.Giaphong.ToString());
+                lvItem.SubItems.Add(p.Trangthai.ToString());
                 //lvItem.SubItems.Add()
                 if (p.Trangthai == 0)
                 {
@@ -81,28 +82,41 @@ namespace QuanLyKhachSan
         {
             if (lvPhong.SelectedItems.Count > 0)
             {
-                ListViewItem lv = lvPhong.SelectedItems[0];
-                Phong p = new Phong();
-                p.Maphong = lv.SubItems[1].Text;
-                ThuePhongBUS thuephongbus = new ThuePhongBUS();
-                KhachHangBUS khBUS = new KhachHangBUS();
-                ThuePhong tp = new ThuePhong();
-                tp = thuephongbus.LayThongTinThuePhong(p.Maphong);
-                KhachHang kh = new KhachHang();
-                kh = khBUS.LayThongTinKhachHangTheoMa(tp.Makhachhang);
-                txtMaKhachHang.Text = kh.Makhachhang;
-                txtTenKhachHang.Text = kh.Tenkhachhang;
-                txtNgayThue.Text = tp.Ngaythue.ToString();
-                txtSoChungMinh.Text = kh.Sochungminh;
 
-                // Lay ma su dung dich vu tu thue phong
-                
-                if (tp.Masudungdichvu != null)
+                ListViewItem lv = lvPhong.SelectedItems[0];
+        
+                if (lv.SubItems[4].Text.Equals("1"))
                 {
-                    masudungdichvu = tp.Masudungdichvu;
-                    LoadSuDungDVPhong(masudungdichvu);
+                    Phong p = new Phong();
+                    p.Maphong = lv.SubItems[1].Text;
+                    ThuePhongBUS thuephongbus = new ThuePhongBUS();
+                    KhachHangBUS khBUS = new KhachHangBUS();
+                    ThuePhong tp = new ThuePhong();
+                    tp = thuephongbus.LayThongTinThuePhong(p.Maphong);
+                    KhachHang kh = new KhachHang();
+                    kh = khBUS.LayThongTinKhachHangTheoMa(tp.Makhachhang);
+                    txtMaKhachHang.Text = kh.Makhachhang;
+                    txtTenKhachHang.Text = kh.Tenkhachhang;
+                    txtNgayThue.Text = tp.Ngaythue.ToString();
+                    txtSoChungMinh.Text = kh.Sochungminh;
+
+                    // Lay ma su dung dich vu tu thue phong
+
+                    if (tp.Masudungdichvu != null)
+                    {
+                        masudungdichvu = tp.Masudungdichvu;
+                        LoadSuDungDVPhong(masudungdichvu);
+                    }
                 }
-            }  
+                else
+                {
+                    txtMaKhachHang.Text = "";
+                    txtTenKhachHang.Text = "";
+                    txtNgayThue.Text = "";
+                    txtSoChungMinh.Text = "";
+                }
+
+            }
         }
 
         private void btnDangXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
