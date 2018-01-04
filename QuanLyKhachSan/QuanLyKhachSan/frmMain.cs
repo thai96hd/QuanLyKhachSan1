@@ -68,6 +68,15 @@ namespace QuanLyKhachSan
             }
             lvPhong.SelectedIndexChanged += LvPhong_SelectedIndexChanged;
         }
+        #region cac bien lay du lieu cua khach
+        private string masudungdichvu="";
+        private void LoadSuDungDVPhong(string ma)
+        {
+            SuDungDichVuBUS sv = new SuDungDichVuBUS();
+            dgvChiTietSuDungDichVu.DataSource = sv.DanhSachDVPhongSD(ma);
+            txtTongTienDV.Text = sv.TongTienDichVu(masudungdichvu).ToString();
+        }
+        #endregion
         private void LvPhong_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lvPhong.SelectedItems.Count > 0)
@@ -85,9 +94,15 @@ namespace QuanLyKhachSan
                 txtTenKhachHang.Text = kh.Tenkhachhang;
                 txtNgayThue.Text = tp.Ngaythue.ToString();
                 txtSoChungMinh.Text = kh.Sochungminh;
+
+                // Lay ma su dung dich vu tu thue phong
                 
-            }
-            
+                if (tp.Masudungdichvu != null)
+                {
+                    masudungdichvu = tp.Masudungdichvu;
+                    LoadSuDungDVPhong(masudungdichvu);
+                }
+            }  
         }
 
         private void btnDangXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -144,6 +159,65 @@ namespace QuanLyKhachSan
             dgvDichVu.DataSource = new DichVuBUS().DanhSachDichVu();
             txtMaDichVu.DataBindings.Add("Text", dgvDichVu.DataSource, "Madichvu");
             txtTenDV.DataBindings.Add("Text", dgvDichVu.DataSource, "Tendichvu");
+        }
+
+        private void btnThemDichVu_Click(object sender, EventArgs e)
+        {
+            if(txtMaDichVu.Text.Equals(""))
+            {
+                MessageBox.Show("Vui long chon dich vu su dung!");
+            }
+            else if (masudungdichvu == "")
+            {
+                MessageBox.Show("Vui long chon phong su dung!");
+            }
+            else
+            {
+                SuDungDichVuBUS sdBUs = new SuDungDichVuBUS();
+                decimal dongia = (decimal)dgvDichVu.CurrentRow.Cells["Dongia"].Value;
+                if (sdBUs.ThemChiTietSuDungDichVu(masudungdichvu, txtMaDichVu.Text, (int)nudSoLuong.Value, dongia * nudSoLuong.Value)){
+                
+                    LoadSuDungDVPhong(masudungdichvu);
+                    SuDungDichVuBUS SuDungDichVuBUS = new SuDungDichVuBUS();
+                    txtTongTienDV.Text = SuDungDichVuBUS.TongTienDichVu(masudungdichvu).ToString();
+                }
+                else if(sdBUs.CapNhatChiTietSuDungDichVu(masudungdichvu, txtMaDichVu.Text, (int)nudSoLuong.Value, dongia * nudSoLuong.Value))
+                {
+           
+                    LoadSuDungDVPhong(masudungdichvu);
+                    SuDungDichVuBUS SuDungDichVuBUS = new SuDungDichVuBUS();
+                    txtTongTienDV.Text = SuDungDichVuBUS.TongTienDichVu(masudungdichvu).ToString()+"VND";
+                }
+                else
+                {
+                    MessageBox.Show("Thêm không thành công!");
+                }
+                
+            }
+        }
+
+        private void btnXoaDichVu_Click(object sender, EventArgs e)
+        {
+            if (dgvChiTietSuDungDichVu.SelectedRows.Count > 0)
+            {
+                SuDungDichVuBUS sdBUs = new SuDungDichVuBUS();
+                string madichvu = dgvChiTietSuDungDichVu.CurrentRow.Cells["madichvu1"].Value.ToString();
+                string masudung= dgvChiTietSuDungDichVu.CurrentRow.Cells["masudungdichvu1"].Value.ToString();
+                if (sdBUs.XoaChiTietSuDungDichVu(masudungdichvu,madichvu))
+                {
+                    MessageBox.Show("Xóa thành công");
+                    LoadSuDungDVPhong(masudungdichvu);
+                }
+                else
+                {
+                    MessageBox.Show("Xóa không thành công!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chọn dịch vụ cần xóa!");
+            }
+           
         }
     }
 }

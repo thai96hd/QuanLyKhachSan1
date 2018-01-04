@@ -55,11 +55,6 @@
             this.btnXoaDichVu = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvChiTietSuDungDichVu = new System.Windows.Forms.DataGridView();
-            this.masudungdichvu1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tendichvu1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dongia1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.soluong1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thanhtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnThemDichVu = new System.Windows.Forms.Button();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.txtNgayThue = new System.Windows.Forms.TextBox();
@@ -77,11 +72,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dgvDichVu = new System.Windows.Forms.DataGridView();
-            this.txtTimKiemDichVu = new DevExpress.XtraEditors.TextEdit();
-            this.label1 = new System.Windows.Forms.Label();
             this.madichvu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tendichvu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dongia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtTimKiemDichVu = new DevExpress.XtraEditors.TextEdit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.masudungdichvu1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.madichvu1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tendichvu1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dongia1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soluong1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.thanhtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtTongTienDV = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -287,6 +290,8 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.txtTongTienDV);
+            this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.btnXoaDichVu);
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Controls.Add(this.btnThemDichVu);
@@ -304,6 +309,7 @@
             this.btnXoaDichVu.TabIndex = 10;
             this.btnXoaDichVu.Text = "Xóa";
             this.btnXoaDichVu.UseVisualStyleBackColor = true;
+            this.btnXoaDichVu.Click += new System.EventHandler(this.btnXoaDichVu_Click);
             // 
             // groupBox1
             // 
@@ -326,39 +332,17 @@
             this.dgvChiTietSuDungDichVu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvChiTietSuDungDichVu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.masudungdichvu1,
+            this.madichvu1,
             this.tendichvu1,
             this.dongia1,
             this.soluong1,
             this.thanhtien});
             this.dgvChiTietSuDungDichVu.Location = new System.Drawing.Point(14, 20);
             this.dgvChiTietSuDungDichVu.Name = "dgvChiTietSuDungDichVu";
+            this.dgvChiTietSuDungDichVu.ReadOnly = true;
+            this.dgvChiTietSuDungDichVu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvChiTietSuDungDichVu.Size = new System.Drawing.Size(527, 58);
             this.dgvChiTietSuDungDichVu.TabIndex = 0;
-            // 
-            // masudungdichvu1
-            // 
-            this.masudungdichvu1.HeaderText = "Mã Sử Dụng";
-            this.masudungdichvu1.Name = "masudungdichvu1";
-            // 
-            // tendichvu1
-            // 
-            this.tendichvu1.HeaderText = "Tên DV";
-            this.tendichvu1.Name = "tendichvu1";
-            // 
-            // dongia1
-            // 
-            this.dongia1.HeaderText = "Đơn Giá";
-            this.dongia1.Name = "dongia1";
-            // 
-            // soluong1
-            // 
-            this.soluong1.HeaderText = "Số lượng";
-            this.soluong1.Name = "soluong1";
-            // 
-            // thanhtien
-            // 
-            this.thanhtien.HeaderText = "Thành tiền";
-            this.thanhtien.Name = "thanhtien";
             // 
             // btnThemDichVu
             // 
@@ -368,6 +352,7 @@
             this.btnThemDichVu.TabIndex = 9;
             this.btnThemDichVu.Text = "Thêm";
             this.btnThemDichVu.UseVisualStyleBackColor = true;
+            this.btnThemDichVu.Click += new System.EventHandler(this.btnThemDichVu_Click);
             // 
             // groupControl1
             // 
@@ -549,6 +534,27 @@
             this.dgvDichVu.Size = new System.Drawing.Size(539, 205);
             this.dgvDichVu.TabIndex = 2;
             // 
+            // madichvu
+            // 
+            this.madichvu.DataPropertyName = "Madichvu";
+            this.madichvu.HeaderText = "Mã DV";
+            this.madichvu.Name = "madichvu";
+            this.madichvu.ReadOnly = true;
+            // 
+            // tendichvu
+            // 
+            this.tendichvu.DataPropertyName = "Tendichvu";
+            this.tendichvu.HeaderText = "Tên dịch vụ";
+            this.tendichvu.Name = "tendichvu";
+            this.tendichvu.ReadOnly = true;
+            // 
+            // dongia
+            // 
+            this.dongia.DataPropertyName = "Dongia";
+            this.dongia.HeaderText = "Đơn giá";
+            this.dongia.Name = "dongia";
+            this.dongia.ReadOnly = true;
+            // 
             // txtTimKiemDichVu
             // 
             this.txtTimKiemDichVu.Location = new System.Drawing.Point(99, 135);
@@ -567,23 +573,69 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tìm kiếm";
             // 
-            // madichvu
+            // masudungdichvu1
             // 
-            this.madichvu.DataPropertyName = "Madichvu";
-            this.madichvu.HeaderText = "Mã DV";
-            this.madichvu.Name = "madichvu";
+            this.masudungdichvu1.DataPropertyName = "Masudungdichvu";
+            this.masudungdichvu1.HeaderText = "Mã Sử Dụng";
+            this.masudungdichvu1.Name = "masudungdichvu1";
+            this.masudungdichvu1.ReadOnly = true;
+            this.masudungdichvu1.Visible = false;
             // 
-            // tendichvu
+            // madichvu1
             // 
-            this.tendichvu.DataPropertyName = "Tendichvu";
-            this.tendichvu.HeaderText = "Tên dịch vụ";
-            this.tendichvu.Name = "tendichvu";
+            this.madichvu1.DataPropertyName = "Madichvu";
+            this.madichvu1.HeaderText = "MãDV";
+            this.madichvu1.Name = "madichvu1";
+            this.madichvu1.ReadOnly = true;
             // 
-            // dongia
+            // tendichvu1
             // 
-            this.dongia.DataPropertyName = "Dongia";
-            this.dongia.HeaderText = "Đơn giá";
-            this.dongia.Name = "dongia";
+            this.tendichvu1.DataPropertyName = "Tendichvu";
+            this.tendichvu1.HeaderText = "Tên DV";
+            this.tendichvu1.Name = "tendichvu1";
+            this.tendichvu1.ReadOnly = true;
+            // 
+            // dongia1
+            // 
+            this.dongia1.DataPropertyName = "Dongia";
+            this.dongia1.HeaderText = "Đơn Giá";
+            this.dongia1.Name = "dongia1";
+            this.dongia1.ReadOnly = true;
+            // 
+            // soluong1
+            // 
+            this.soluong1.DataPropertyName = "Soluong";
+            this.soluong1.HeaderText = "Số lượng";
+            this.soluong1.Name = "soluong1";
+            this.soluong1.ReadOnly = true;
+            // 
+            // thanhtien
+            // 
+            this.thanhtien.DataPropertyName = "Thanhtien";
+            this.thanhtien.HeaderText = "Thành tiền";
+            this.thanhtien.Name = "thanhtien";
+            this.thanhtien.ReadOnly = true;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(606, 318);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(68, 13);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "Tổng tiền DV";
+            // 
+            // txtTongTienDV
+            // 
+            this.txtTongTienDV.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTongTienDV.Location = new System.Drawing.Point(704, 318);
+            this.txtTongTienDV.Name = "txtTongTienDV";
+            this.txtTongTienDV.ReadOnly = true;
+            this.txtTongTienDV.Size = new System.Drawing.Size(128, 21);
+            this.txtTongTienDV.TabIndex = 12;
             // 
             // frmMain
             // 
@@ -603,6 +655,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietSuDungDichVu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
@@ -662,14 +715,17 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnThemDichVu;
         private System.Windows.Forms.Button btnXoaDichVu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn madichvu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tendichvu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dongia;
         private System.Windows.Forms.DataGridViewTextBoxColumn masudungdichvu1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn madichvu1;
         private System.Windows.Forms.DataGridViewTextBoxColumn tendichvu1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dongia1;
         private System.Windows.Forms.DataGridViewTextBoxColumn soluong1;
         private System.Windows.Forms.DataGridViewTextBoxColumn thanhtien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn madichvu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tendichvu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dongia;
+        private System.Windows.Forms.TextBox txtTongTienDV;
+        private System.Windows.Forms.Label label9;
     }
 }
 

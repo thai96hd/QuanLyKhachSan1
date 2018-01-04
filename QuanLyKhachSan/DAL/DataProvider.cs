@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace DAL
 {
@@ -124,6 +125,7 @@ namespace DAL
             }
             catch (Exception)
             {
+             
                 ret = -1;
             }
             close();
