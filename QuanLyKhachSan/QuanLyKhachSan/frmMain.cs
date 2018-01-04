@@ -32,11 +32,19 @@ namespace QuanLyKhachSan
                 
             }
             #endregion
+            LoadDanhSachPhong();
+            dgvDichVu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvChiTietSuDungDichVu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            LoadDataKhachHangDV();
+
+        }
+        private void LoadDanhSachPhong()
+        {
             PhongBUS phongBUS = new PhongBUS();
             lvPhong.Items.Clear();
             lvPhong.LargeImageList = imageList1;
             lvPhong.View = View.LargeIcon;
-            foreach(Phong p in  phongBUS.getListPhong())
+            foreach (Phong p in phongBUS.getListPhong())
             {
                 ListViewItem lvItem = new ListViewItem(p.Tenphong);
                 lvItem.SubItems.Add(p.Maphong);
@@ -48,15 +56,38 @@ namespace QuanLyKhachSan
                     lvItem.ImageIndex = 0;
                     lvItem.BackColor = Color.Green;
                 }
-                else if(p.Trangthai==1)
+                else if (p.Trangthai == 1)
                 {
                     lvItem.ImageIndex = 1;
                     lvItem.BackColor = Color.Red;
                 }
+
                 lvPhong.Items.Add(lvItem);
 
+
             }
-           
+            lvPhong.SelectedIndexChanged += LvPhong_SelectedIndexChanged;
+        }
+        private void LvPhong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lvPhong.SelectedItems.Count > 0)
+            {
+                ListViewItem lv = lvPhong.SelectedItems[0];
+                Phong p = new Phong();
+                p.Maphong = lv.SubItems[1].Text;
+                ThuePhongBUS thuephongbus = new ThuePhongBUS();
+                KhachHangBUS khBUS = new KhachHangBUS();
+                ThuePhong tp = new ThuePhong();
+                tp = thuephongbus.LayThongTinThuePhong(p.Maphong);
+                KhachHang kh = new KhachHang();
+                kh = khBUS.LayThongTinKhachHangTheoMa(tp.Makhachhang);
+                txtMaKhachHang.Text = kh.Makhachhang;
+                txtTenKhachHang.Text = kh.Tenkhachhang;
+                txtNgayThue.Text = tp.Ngaythue.ToString();
+                txtSoChungMinh.Text = kh.Sochungminh;
+                
+            }
+            
         }
 
         private void btnDangXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -97,6 +128,24 @@ namespace QuanLyKhachSan
             f.ShowDialog();
             frmMain_Load(sender, e);
             
+        }
+
+        private void btnThuePhong1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmThuePhong f = new frmThuePhong();
+            f.ShowDialog();
+            LoadDanhSachPhong();
+        }
+
+        private void txtTimKiemDichVu_EditValueChanged(object sender, EventArgs e)
+        {
+            dgvDichVu.DataSource = new DichVuBUS().TimKiemDichVu(txtTimKiemDichVu.Text);
+        }
+        private void LoadDataKhachHangDV()
+        {
+            dgvDichVu.DataSource = new DichVuBUS().DanhSachDichVu();
+            txtMaDichVu.DataBindings.Add("Text", dgvDichVu.DataSource, "Madichvu");
+            txtTenDV.DataBindings.Add("Text", dgvDichVu.DataSource, "Tendichvu");
         }
     }
 }

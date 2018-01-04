@@ -11,6 +11,27 @@ namespace DAL
 {
     public class ThuePhongDAL
     {
+        public ThuePhong LayThongTinThuePhong(string maphong)
+        {
+            SqlParameter[] pa = new SqlParameter[]
+            {
+                new SqlParameter("@maphong",maphong)
+            };
+            ThuePhong tp = new ThuePhong();
+            DataTable dt = new DataTable();
+            dt = DataProvider.Instance.GetData("sp_laythongtinthuephonggannhat", pa);
+            if (dt.Rows.Count > 0)
+            {
+                DataRow dr = dt.Rows[0];
+                tp.Makhachhang = dr["makhachhang"].ToString();
+                tp.Mathuephong = dr["mathuephong"].ToString();
+                tp.Makhachhang = dr["makhachhang"].ToString();
+                tp.Ngaythue = (DateTime)dr["ngaythuephong"];
+                tp.Masudungdichvu= dr["masudungdichvu"].ToString();
+               
+            }
+            return tp;
+        }
         public bool ThemThuePhong(List<Phong> dsThuePhong,string makhachhang,string manhanvien,DateTime ngaythue)
         {
             string mathuephong = SinhMaThuePhong();

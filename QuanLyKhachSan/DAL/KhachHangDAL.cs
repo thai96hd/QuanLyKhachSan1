@@ -31,6 +31,25 @@ namespace DAL
             }
             return list;
         }
+        public KhachHang LayThongTinKhachHangTheoMa(string ma)
+        {
+            KhachHang kh = new KhachHang();
+            DataTable dt = new DataTable();
+            dt = DataProvider.Instance.GetDataQuerry("select *from KhachHang where makhachhang='" + ma + "'");
+            if (dt.Rows.Count > 0)
+            {
+                DataRow dr = dt.Rows[0];
+                kh.Makhachhang = dr["makhachhang"].ToString();
+                kh.Tenkhachhang = dr["tenkhachhang"].ToString();
+                kh.Sochungminh = dr["sochungminh"].ToString();
+                kh.Ngaysinh = (DateTime)dr["ngaysinh"];
+                kh.Sodienthoai = dr["sodienthoai"].ToString();
+                kh.Gioitinh = dr["gioitinh"].ToString();
+                kh.Diadiem = dr["diadiem"].ToString();
+            }
+       
+            return kh;
+        }
         public List<KhachHang> TimKiemKhachHang(int danhmuctimkiem,string chuoitimkiem)
         {
             List<KhachHang> list = new List<KhachHang>();

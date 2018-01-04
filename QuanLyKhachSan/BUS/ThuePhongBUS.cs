@@ -16,5 +16,10 @@ namespace BUS
 
             return thuePhongDAL.ThemThuePhong(dsPhongThue, makhachhang, manhanvien, ngaythue);
         }
+        public ThuePhong LayThongTinThuePhong(string maphong)
+        {
+            ThuePhongDAL thuePhongDAL = new ThuePhongDAL();
+            return thuePhongDAL.LayThongTinThuePhong(maphong);
+        }
     }
 }
