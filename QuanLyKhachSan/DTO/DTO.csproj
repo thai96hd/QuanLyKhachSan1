@@ -40,11 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="ChiTietThietBiPhong.cs" />
-=======
     <Compile Include="DichVu.cs" />
->>>>>>> eeac6a33300b582eeb68cc2e7dba0f6a4c9a77a1
     <Compile Include="KhachHang.cs" />
     <Compile Include="LoaiPhong.cs" />
     <Compile Include="NhanVien.cs" />

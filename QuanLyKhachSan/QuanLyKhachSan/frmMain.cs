@@ -126,8 +126,9 @@ namespace QuanLyKhachSan
         {
             frmPhong f = new frmPhong();
             f.ShowDialog();
-            frmMain_Load(sender, e);
-            
+            LoadDanhSachPhong();
+
+
         }
 
         private void btnThuePhong1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
